@@ -28,7 +28,8 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/future', routes.index);
+app.get('/', routes.splash);
 //app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function () {
@@ -37,109 +38,6 @@ http.createServer(app).listen(app.get('port'), function () {
 
 //var OAuth = require('OAuth');
 var util = require('util');
-/*
- var oauth = new OAuth.OAuth(
- 'https://api.twitter.com/oauth/request_token',
- 'https://api.twitter.com/oauth/access_token',
- 'A6x1nzmmmerCCmVN8zTgew',
- 'oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw',
- '1.0A',
- null,
- 'HMAC-SHA1'
- );
- oauth.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
- if(error) util.puts('error :' + error)
- else {
- util.puts('oauth_token :' + oauth_token)
- util.puts('oauth_token_secret :' + oauth_token_secret)
- util.puts('requestoken results :' + util.inspect(results))
- util.puts("Requesting access token")
- oauth.getOAuthAccessToken(oauth_token, oauth_token_secret, function(error, oauth_access_token, oauth_access_token_secret, results2) {
- util.puts('oauth_access_token :' + oauth_access_token)
- util.puts('oauth_token_secret :' + oauth_access_token_secret)
- util.puts('accesstoken results :' + util.inspect(results2))
- util.puts("Requesting access token")
- var data= "";
- oauth.getProtectedResource("http://term.ie/oauth/example/echo_api.php?foo=bar&too=roo", "GET", oauth_access_token, oauth_access_token_secret,  function (error, data, response) {
- util.puts(data);
- });
- });
- }
- });
- */
-/*
-app.get('/login', function (a, b) {
-    var oa = new OAuth.OAuth(
-        'https://api.twitter.com/oauth/request_token',
-        'https://api.twitter.com/oauth/access_token',
-        'A6x1nzmmmerCCmVN8zTgew',
-        'oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw',
-        '1.0A',
-        'http://localhost:3000/cb',
-        'HMAC-SHA1'
-    );
-    oa.getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
-        if (error) {
-            console.log('error');
-            console.log(error);
-        }
-        else {
-            // store the tokens in the session
-            a.session.oa = oa;
-            a.session.oauth_token = oauth_token;
-            a.session.oauth_token_secret = oauth_token_secret;
-
-            // redirect the user to authorize the token
-            b.redirect("https://api.twitter.com/oauth/request_token?oauth_token=" + oauth_token);
-        }
-    })
-
-
-});*/
-/*
-var OAuth2 = OAuth.OAuth2;
-var twitterConsumerKey = 'A6x1nzmmmerCCmVN8zTgew';
-var twitterConsumerSecret = 'oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw';
-var oauth2 = new OAuth2(
-    twitterConsumerKey,
-    twitterConsumerSecret,
-    'https://api.twitter.com/',
-    null,
-    'oauth2/token',
-    null);
-oauth2.getOAuthAccessToken(
-    '',
-    {'grant_type':'client_credentials'},
-    function (e, access_token, refresh_token, results){
-        console.log('bearer: ',access_token);
-        oauth2.get('protected url',
-            access_token, function(e,data,res) {
-                if (e) return callback(e, null);
-                if (res.statusCode!=200)
-                    return callback(new Error(
-                        'OAuth2 request failed: '+
-                            res.statusCode),null);
-                try {
-                    data = JSON.parse(data);
-                }
-                catch (e){
-                    return callback(e, null);
-                }
-                return callback(e, data);
-            });
-    });
-function callback(a,b){
-    console.log(a,b);
-}
-app.get('/cb', function (a, b) {
-
-console.log(a);
-    a.session.oauth_token_2 = a.query.oauth_token;
-    a.session.oauth_token_secret_2 = a.query.oauth_verifier;
-    b.redirect('/')
-});
-*/
-
 var OAuth= require('oauth').OAuth;
 
 var oa = new OAuth(
