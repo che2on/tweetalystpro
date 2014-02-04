@@ -3,9 +3,12 @@ html(ng-app)
     head
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/lib/stylesheets/bootstrap.css')
         script(src='/javascripts/angular.min.js')
     body
         block content
 
         .content(ng-controller='TestApp' style="text-align:center")
             img(src='/images/tweetalystprosmall.png')
+
+            button(type="submit" class="btn btn-primary") Login
