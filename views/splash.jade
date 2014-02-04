@@ -2,8 +2,8 @@ doctype html
 html(ng-app)
     head
         title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='/lib/stylesheets/bootstrap.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
         script(src='/javascripts/angular.min.js')
     body
         block content
@@ -11,4 +11,5 @@ html(ng-app)
         .content(ng-controller='TestApp' style="text-align:center")
             img(src='/images/tweetalystprosmall.png')
 
-            button(type="submit" class="btn btn-primary") Login
+            #buttonname
+            button(type="submit" class="btn btn-success btn-lg ") Login
