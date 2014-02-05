@@ -94,11 +94,7 @@ app.get('/auth/twitter/callback', function(req, res, next){
                         .verifyCredentials(function (err, data) {
                             console.log(err,data);
                         })
-                        .updateStatus('Test tweet from ntwitter/' + twitter.VERSION,
-                        function (err, data) {
-                            console.log(err,data);
-                            res.redirect('/');
-                        }
+                        
                     );
 
                 }

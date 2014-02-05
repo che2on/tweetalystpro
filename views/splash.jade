@@ -4,6 +4,7 @@ html(ng-app)
         title= title
         link(rel='stylesheet', href='/lib/stylesheets/bootstrap.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='/javascripts/custom.js')
         script(src='/javascripts/angular.min.js')
     body
         block content
@@ -12,4 +13,4 @@ html(ng-app)
             img(src='/images/tweetalystprosmall.png')
 
             #buttonname
-            a(type="submit" class="btn btn-success btn-lg" href="/auth/twitter") Login
+            a(type="submit" class="btn btn-success btn-lg" href="/auth/twitter" ) Login
