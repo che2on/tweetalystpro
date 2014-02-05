@@ -12,14 +12,11 @@ html(ng-app)
 
         a(href='/auth/twitter') login twitter.
         .content(ng-controller='TestApp')
-            h2 total count: {{count}}
-            h3
-                span(style='color:green')  Love: {{countLove}}
-                span(style='color:red')  Hate: {{countHate}}
-                span  Love and Hate: {{countMiddle}}
-            div(ng-repeat='t in twitts')     
-                .row
-                    .col-md-4
-                              p(style='color:{{t.color}}')
-                    .col-md-4 {{t.user.screen_name}}:
-                    .col-md-4 {{t.text}}
+            .row
+                .col-md-4 h3 Templates
+                .col-md-4 h3 Priority
+                .col-md-4 h3 Not attended
+                                    div(ng-repeat='t in twitts')     
+                                        .row
+                                            .col-md-4 {{t.user.screen_name}}:
+                                            .col-md-4 {{t.text}}
