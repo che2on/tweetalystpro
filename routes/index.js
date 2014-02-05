@@ -38,6 +38,14 @@ exports.index = function (req, res) {
 };
 
 exports.splash = function (req , res) {
-    res.render('splash' , {});
+    
+    if (req.session.oauth) 
+    {
+        res.render('index', {});
+    }
+    else
+    {
+        res.render('splash' , {});
+    }
 }
 
