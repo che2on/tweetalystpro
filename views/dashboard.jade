@@ -225,13 +225,30 @@ html(ng-app)
                                 
                 .col-md-3
                          h3 Priority reply
+                            .row
                             div(class="input-group input-group-lg")
                                 span(class="input-group-addon") @
                                 input(type="text" class="form-control" placeholder="username")
-                                div(class="col-lg-2")
-                                    input(type="text" class="form-control" placeholder=".col-lg-4")
-                            a(type="submit" class="btn btn-success btn-lg" href="#" ) Reply
-
+                            .row
+                            div(class="input-group input-group-lg")
+                                    span(class="input-group-addon") Text
+                                    input(type="text" class="form-control" placeholder="type your text" )
+                            .row
+                                      
+                                        form#contactForm.well(name='sentMessage', novalidate='novalidate')
+                                          legend Reply
+                                          .control-group
+                                            .controls
+                                              input#name.form-control(type='text', placeholder='username', required='required', data-validation-required-message='Please enter your name')
+                                              p.help-block
+                                          .control-group
+                                            .controls
+                                              textarea#message.form-control(rows='10', cols='100', placeholder='Message', required='required', data-validation-required-message='Please enter your message', minlength='5', data-validation-minlength-message='Min 5 characters', maxlength='999', style='resize: none;')
+                                          #success  
+                                          //
+                                             For success/fail messages 
+                                          button.btn.btn-primary.pull-right(type='submit') Reply
+                                          br
 
                 .col-md-6 
                          h3 Not attended
