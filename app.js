@@ -30,6 +30,7 @@ if ('development' == app.get('env')) {
 
 app.get('/future', routes.index);
 app.get('/', routes.splash);
+app.get('/dashboard', routes.dashboard);
 //app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function () {
@@ -96,7 +97,7 @@ app.get('/auth/twitter/callback', function(req, res, next){
                             console.log("In app.js ");
                     });
 
-                    res.redirect('/');
+                    res.redirect('/dashboard');
                        
 
                 }
