@@ -93,7 +93,10 @@ app.get('/auth/twitter/callback', function(req, res, next){
                     twit
                         .verifyCredentials(function (err, data) {
                             console.log(err,data);
-                        })
+                            console.log("In app.js ");
+                    });
+
+                    res.redirect('/');
                        
 
                 }
