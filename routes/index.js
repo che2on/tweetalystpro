@@ -19,7 +19,7 @@ exports.index = function (req, res) {
                 console.log(err, data);
             })
             
-        );
+        
 
 
         twit.stream(
@@ -37,15 +37,11 @@ exports.index = function (req, res) {
     }
 };
 
-exports.splash = function (req , res) {
-    
-    if (req.session.oauth) 
-    {
-        res.render('index', {});
-    }
-    else
+exports.splash = function (req , res)
+{
     {
         res.render('splash' , {});
     }
-}
+};
+
 

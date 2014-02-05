@@ -94,8 +94,7 @@ app.get('/auth/twitter/callback', function(req, res, next){
                         .verifyCredentials(function (err, data) {
                             console.log(err,data);
                         })
-                        
-                    );
+                       
 
                 }
             }
