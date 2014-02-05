@@ -9,14 +9,54 @@ html(ng-app)
         script(src='/javascripts/engine.js',type='text/javascript')
     body
         block content
-
-        a(href='/auth/twitter') login twitter.
         .content(ng-controller='TestApp')
+            nav(class="navbar navbar-default navbar-fixed-top" role="navigation")
             .row
-                .col-md-4 h3 Templates
-                .col-md-4 h3 Priority
-                .col-md-4 h3 Not attended
-                                    div(ng-repeat='t in twitts')     
-                                        .row
-                                            .col-md-4 {{t.user.screen_name}}:
-                                            .col-md-4 {{t.text}}
+                .col-md-3
+                         h3 Templates
+
+                         div(class="list-group")
+                             a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 1
+                                p(class="list-group-item-text") We apologize for the intteruption.
+                             a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 2
+                                p(class="list-group-item-text") Thank you for contacting us.
+                             a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 3
+                                p(class="list-group-item-text") We will get back to you shortly.
+                            a(href="#" class="list-group-item active ")
+                                h4(class="list-group-item-heading") Template 4
+                                p(class="list-group-item-text") Please DM your phone number.
+                            a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 5
+                                p(class="list-group-item-text")  Welcome. Have a good day!
+                            a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 6
+                                p(class="list-group-item-text") Thank you for contacting us.
+                            a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 7
+                                p(class="list-group-item-text") We will get back to you shortly.
+                            a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 8
+                                p(class="list-group-item-text") Please DM your phone number.
+                            a(href="#" class="list-group-item ")
+                                h4(class="list-group-item-heading") Template 9
+                                p(class="list-group-item-text")  Welcome. Have a good day!
+                                
+                .col-md-3
+                         h3 Priority reply
+                            div(class="input-group input-group-lg")
+                                span(class="input-group-addon") @
+                                input(type="text" class="form-control" placeholder="username")
+                            a(type="submit" class="btn btn-success btn-lg" href="#" ) Reply
+
+                .col-md-6 
+                         h3 Not attended
+                         div(class="list-group")
+                         div(ng-repeat='t in twitts') 
+                            .row
+                                a(href="#" class="list-group-item ")
+                                    h4(class="list-group-item-heading") {{t.user.screen_name}}
+                                    p(class="list-group-item-text") {{t.text}}    
+                            
