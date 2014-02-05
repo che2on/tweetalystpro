@@ -51,7 +51,7 @@ exports.dashboard = function ( req, res) {
 
         twit.stream(
             'statuses/filter',
-            {track: ['vodafoneIN', 'vodafone india', 'vodafone karnataka', 'vodafone' , 'mobile']},
+            {track: ['vodafoneIN', 'vodafone india', 'vodafone karnataka', 'vodafone', ]},
             function (stream) {
                 stream.on('data', function (data) {
                     //console.log(data);
