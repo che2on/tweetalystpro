@@ -18,10 +18,7 @@ exports.index = function (req, res) {
             .verifyCredentials(function (err, data) {
                 console.log(err, data);
             })
-            .updateStatus('Test tweet from ntwitter/' + twitter.VERSION,
-            function (err, data) {
-                console.log(data);
-            }
+            
         );
 
 
