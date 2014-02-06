@@ -3,7 +3,6 @@
  */
 var twitter = require('ntwitter');
 var io = require('socket.io').listen(3001, {log: false});
-var io2 = require('socket.io').listen(3002, {log: false});
 exports.index = function (req, res) {
     res.render('index', { title: 'Express' });
     if (req.session.oauth) {
