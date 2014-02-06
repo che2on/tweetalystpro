@@ -3,6 +3,7 @@
  */
 var twitter = require('ntwitter');
 var io = require('socket.io').listen(3001, {log: false});
+var io2 = require('socket.io').listen(3002, {log: false});
 exports.index = function (req, res) {
     res.render('index', { title: 'Express' });
     if (req.session.oauth) {
@@ -52,7 +53,10 @@ exports.dashboard = function ( req, res) {
         twit.stream(
             'statuses/filter',
             {track: ['vodafoneIN', 'vodafone india', 'vodafone karnataka', 'vodafone', ]},
-            function (stream) {
+            function (stream)
+             {
+                console.log("stream is"+stream);
+                
                 stream.on('data', function (data) {
                     //console.log(data);
                     //console.log(data.user.screen_name + " : " + data.text);
@@ -63,6 +67,40 @@ exports.dashboard = function ( req, res) {
         );
     }
 
+}
+
+exports.mentionmanagement = function ( req, res) {
+    res.render('mentionmanagement' , {});
+    if(req.session.oauth) {
+            var twit = new twitter({
+            consumer_key: "A6x1nzmmmerCCmVN8zTgew",
+            consumer_secret: "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+            access_token_key: req.session.oauth.access_token,
+            access_token_secret: req.session.oauth.access_token_secret
+        });
+
+    twit.getMentions('', function(err,data)
+     {
+
+         // data.on('data', function(d)
+         //                        {
+         //                             io.sockets.emit('menTwitt', d);
+         //                        }
+         //                        );
+
+       console.log(data);
+        for(var key in data)
+        {
+                                var attrName = key;
+                                var attrValue = data[key];
+                                console.log(attrValue.user.screen_name);
+
+                               
+        }
+
+    });
+
+    }
 }
 
 

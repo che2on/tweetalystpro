@@ -30,6 +30,7 @@ if ('development' == app.get('env')) {
 
 app.get('/future', routes.index);
 app.get('/', routes.splash);
+app.get('/mentionmanagement', routes.mentionmanagement);
 app.get('/dashboard', routes.dashboard);
 //app.get('/users', user.list);
 

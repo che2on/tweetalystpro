@@ -13,18 +13,12 @@ html(ng-app)
         script(src='bower_components/bootstrap/dist/js/bootstrap.min.js',type='text/javascript')
     body
         block content
-        .content(ng-controller='TestApp')
-
-	        .row
-	                .col-md-6 
-	                         h3 Mention management
-	                         div(class="list-group")
-	                         div(ng-repeat='t in twitts') 
-	                            .row
-	                                a(href="#" class="list-group-item ")
-	                                    h4(class="list-group-item-heading") {{t.user.screen_name}}
-	                                    p(class="list-group-item-text") {{t.text}}   
-
-	                                
-	                .col-md-3
-	                         h3 Priority reply
+        .content(ng-controller='mentionApp')
+                .col-md-6 
+                         h3 All Replies
+                         div(class="list-group")
+                         div(ng-repeat='t in twitts') 
+                            .row
+                                a(href="#" class="list-group-item ")
+                                    h4(class="list-group-item-heading") {{t.user.screen_name}}
+                                    p(class="list-group-item-text") {{t.text}}   				            
