@@ -56,7 +56,7 @@ exports.dashboard = function ( req, res) {
             function (stream)
              {
                 console.log("stream is"+stream);
-                
+
                 stream.on('data', function (data) {
                     //console.log(data);
                     //console.log(data.user.screen_name + " : " + data.text);
@@ -88,12 +88,20 @@ exports.mentionmanagement = function ( req, res) {
          //                        }
          //                        );
 
-       console.log(data);
+      // console.log(data);
         for(var key in data)
         {
                                 var attrName = key;
                                 var attrValue = data[key];
                                 console.log(attrValue.user.screen_name);
+
+                                // var scope = angular.element($("#mentionApp")).scope();
+                                // scope.$apply(function(){
+                                // scope.twitts = [{user: {screen_name: 'new'}, text: 'update'}];
+                                // })
+                                info = { "text":attrValue.text , user:{"screen_name":attrValue.user.screen_name} };
+
+                                io.sockets.emit('menTwitt', info);
 
                                
         }

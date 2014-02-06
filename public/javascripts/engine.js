@@ -44,17 +44,20 @@ function TestApp($scope) {
 function mentionApp($scope) 
 {
     $scope.twitts = [
-            {user: {screen_name: 'Reply'}, text: 'Reply text'}
+           
     ];
 
     var socket = io.connect('http://localhost:3001');
     window.socket = socket;
     socket.on('menTwitt', function (item)
     {
+      //  item = {user: {screen_name: 'new'}, text: 'new!'};
+        console.log("item is "+item);
         $scope.twitts.push(item);
         console.log("pushing tweets");
+         $scope.$apply();
     })
 
-    $scope.$apply();
+   
 
 }
