@@ -201,6 +201,26 @@ html(ng-app)
                                 a(href="#" class="list-group-item ")
                                     h4(class="list-group-item-heading") {{t.user.screen_name}}
                                     p(class="list-group-item-text") {{t.text}}   
+
+                                
+                .col-md-3
+                         h3 Priority reply
+                            .row
+                                div
+                                        form#contactForm.well(name='sentMessage', novalidate='novalidate')
+                                          legend Reply
+                                          .control-group
+                                            .controls
+                                              input#name.form-control(type='text', placeholder='username', required='required', data-validation-required-message='Please enter your name')
+                                              p.help-block
+                                          .control-group
+                                            .controls
+                                              textarea#message.form-control(rows='10', cols='100', placeholder='Message', required='required', data-validation-required-message='Please enter your message', minlength='5', data-validation-minlength-message='Min 5 characters', maxlength='999', style='resize: none;')
+                                          #success  
+                                          //
+                                             For success/fail messages 
+                                          button.btn.btn-primary.pull-right(type='submit') Reply
+                                          br
                 .col-md-3
                          h3 Templates
 
@@ -232,25 +252,6 @@ html(ng-app)
                             a(href="#" class="list-group-item ")
                                 h4(class="list-group-item-heading") Template 9
                                 p(class="list-group-item-text")  Welcome. Have a good day!
-                                
-                .col-md-3
-                         h3 Priority reply
-                            .row
-                                div
-                                        form#contactForm.well(name='sentMessage', novalidate='novalidate')
-                                          legend Reply
-                                          .control-group
-                                            .controls
-                                              input#name.form-control(type='text', placeholder='username', required='required', data-validation-required-message='Please enter your name')
-                                              p.help-block
-                                          .control-group
-                                            .controls
-                                              textarea#message.form-control(rows='10', cols='100', placeholder='Message', required='required', data-validation-required-message='Please enter your message', minlength='5', data-validation-minlength-message='Min 5 characters', maxlength='999', style='resize: none;')
-                                          #success  
-                                          //
-                                             For success/fail messages 
-                                          button.btn.btn-primary.pull-right(type='submit') Reply
-                                          br
 
                  
         script(src='bower_components/jquery/jquery.js',type='text/javascript')
