@@ -36,6 +36,7 @@ function TestApp($scope) {
         if ($scope.twitts.length > 15)
             $scope.twitts.splice(0, 1);
         $scope.$apply();
+        $('#chatAudio')[0].play();
 
     })
 
