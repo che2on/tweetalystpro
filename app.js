@@ -32,6 +32,7 @@ app.get('/future', routes.index);
 app.get('/', routes.splash);
 app.get('/mentionmanagement', routes.mentionmanagement);
 app.get('/dashboard', routes.dashboard);
+app.get('/realtime', routes.realtime);
 //app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function () {
