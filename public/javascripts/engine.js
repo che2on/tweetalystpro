@@ -56,9 +56,71 @@ function mentionApp($scope)
         console.log("item is "+item);
         $scope.twitts.push(item);
         console.log("pushing tweets");
-         $scope.$apply();
-    })
-
-   
+        $scope.$apply();
+    })  
 
 }
+
+function replyApp($scope)
+{
+    $scope.twitts = [];
+    var socket = io.connect('http://localhost:3001');
+    window.socket = socket;
+    socket.on('repTwitt', function(item)
+    {
+        console.log("item is "+item);
+        $scope.twitts.push(item);
+        console.log("pushing rep tweets");
+        $scope.$apply();
+
+    })
+}
+
+function favApp($scope)
+{
+    $scope.twitts = [];
+    var socket = io.connect('http://localhost:3001');
+    window.socket = socket;
+    socket.on('favTwitt', function(item)
+    {
+        console.log("item is "+item);
+        $scope.twitts.push(item);
+        console.log("pushing fav tweets");
+        $scope.$apply();
+
+    })
+}
+
+function followApp($scope)
+{
+    $scope.twitts = [];
+    var socket = io.connect('http://localhost:3001');
+    window.socket = socket;
+    socket.on('followTwitt', function(item)
+    {
+        console.log("item is "+item);
+        $scope.twitts.push(item);
+        console.log("pushing follow tweets");
+        $scope.$apply();
+
+    })
+
+}
+
+
+function directApp($scope)
+{
+    $scope.twitts = [];
+    var socket = io.connect('http://localhost:3001');
+    window.socket = socket;
+    socket.on('directTwitt', function(item)
+    {
+        console.log("item is "+item);
+        $scope.twitts.push(item);
+        console.log("pushing direct tweets");
+        $scope.$apply();
+
+    })
+
+}
+

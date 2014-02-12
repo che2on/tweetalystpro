@@ -109,6 +109,15 @@ exports.realtime = function ( req, res) {
          function(stream) {
             stream.on('data', function(data) {
                 console.log(data);
+
+                io.sockets.emit('repTwitt', data);
+                if(data.event == "follow")
+                {
+                io.sockets.emit('followTwitt', data);
+                console.log("someone is following you")
+                }
+              //  io.sockets.emit('favTwitt', data);
+              //  io.sockets.emit('directTwitt', data);
                 // if data contains event for favorite
 
                 // if data contains event for direct message
@@ -118,6 +127,7 @@ exports.realtime = function ( req, res) {
                 // if data contains event for someone unfollowing an account
             })
          })
+    }
 
 }
 

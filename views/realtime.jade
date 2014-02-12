@@ -36,8 +36,8 @@ html(ng-app)
                          div(ng-repeat='t in twitts') 
                             .row
                                 a(href="#" class="list-group-item ")
-                                    h4(class="list-group-item-heading") {{t.user.screen_name}}
-                                    p(class="list-group-item-text") {{t.text}} 
+                                    h4(class="list-group-item-heading") {{t.source.screen_name}}
+                                    p(class="list-group-item-text") {{t.source.created_at}} 
                 .col-md-3(ng-controller='directApp')
                          h3 Direct Messages
                          div(class="list-group")
