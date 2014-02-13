@@ -1,14 +1,18 @@
 /*
  * GET home page.
  */
+
+var CONSUMER_KEY = "sEORAkR5366d5o9wTfMtmQ";
+var CONSUMER_SECRET = "xwlDEXXpim7yEK69KtRo0C4zh5TR3sQCjBOaCEfwpcQ";
+
 var twitter = require('ntwitter');
 var io = require('socket.io').listen(3001, {log: false});
 exports.index = function (req, res) {
     res.render('index', { title: 'Express' });
     if (req.session.oauth) {
         var twit = new twitter({
-            consumer_key: "A6x1nzmmmerCCmVN8zTgew",
-            consumer_secret: "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+            consumer_key: CONSUMER_KEY,
+            consumer_secret: CONSUMER_SECRET,
             access_token_key: req.session.oauth.access_token,
             access_token_secret: req.session.oauth.access_token_secret
         });
@@ -54,8 +58,8 @@ exports.dashboard = function ( req, res) {
     res.render('dashboard' , {});
     if (req.session.oauth) {
         var twit = new twitter({
-            consumer_key: "A6x1nzmmmerCCmVN8zTgew",
-            consumer_secret: "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+            consumer_key: CONSUMER_KEY,
+            consumer_secret: CONSUMER_SECRET,
             access_token_key: req.session.oauth.access_token,
             access_token_secret: req.session.oauth.access_token_secret
         });
@@ -98,8 +102,8 @@ exports.realtime = function ( req, res) {
      if(req.session.oauth)
      {
             var twit = new twitter({
-            consumer_key: "A6x1nzmmmerCCmVN8zTgew",
-            consumer_secret: "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+            consumer_key: CONSUMER_KEY,
+            consumer_secret: CONSUMER_SECRET,
             access_token_key: req.session.oauth.access_token,
             access_token_secret: req.session.oauth.access_token_secret
      });
@@ -116,6 +120,19 @@ exports.realtime = function ( req, res) {
                 io.sockets.emit('followTwitt', data);
                 console.log("someone is following you")
                 }
+                if(data.event == "favorite")
+                {
+                io.sockets.emit('favTwitt', data);
+                console.log("favorite tweet!")
+                }
+
+                if(data.hasOwnProperty("direct_message"))
+                {
+                io.sockets.emit('directTwitt' , data)
+                console.log("dm");
+
+                }
+
               //  io.sockets.emit('favTwitt', data);
               //  io.sockets.emit('directTwitt', data);
                 // if data contains event for favorite
@@ -135,8 +152,8 @@ exports.mentionmanagement = function ( req, res) {
     res.render('mentionmanagement' , {});
     if(req.session.oauth) {
             var twit = new twitter({
-            consumer_key: "A6x1nzmmmerCCmVN8zTgew",
-            consumer_secret: "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+            consumer_key: CONSUMER_KEY,
+            consumer_secret: CONSUMER_SECRET,
             access_token_key: req.session.oauth.access_token,
             access_token_secret: req.session.oauth.access_token_secret
         });

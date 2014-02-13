@@ -46,8 +46,8 @@ var OAuth= require('oauth').OAuth;
 var oa = new OAuth(
     "https://api.twitter.com/oauth/request_token",
     "https://api.twitter.com/oauth/access_token",
-    "A6x1nzmmmerCCmVN8zTgew",
-    "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+    "sEORAkR5366d5o9wTfMtmQ",
+    "xwlDEXXpim7yEK69KtRo0C4zh5TR3sQCjBOaCEfwpcQ",
     "1.0",
     "http://localhost:3000/auth/twitter/callback",
     "HMAC-SHA1"
@@ -86,8 +86,8 @@ app.get('/auth/twitter/callback', function(req, res, next){
                     console.log(results);
                     //console.log(req);
                     var twit = new twitter({
-                        consumer_key: "A6x1nzmmmerCCmVN8zTgew",
-                        consumer_secret: "oOMuBkeqXLqoJkSklhpTrsvuZXo9VowyABS8EkAUw",
+                        consumer_key: "sEORAkR5366d5o9wTfMtmQ",
+                        consumer_secret: "xwlDEXXpim7yEK69KtRo0C4zh5TR3sQCjBOaCEfwpcQ",
                         access_token_key: req.session.oauth.access_token,
                         access_token_secret: req.session.oauth.access_token_secret
                     });
