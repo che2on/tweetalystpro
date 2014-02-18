@@ -9,6 +9,7 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
+var SCREEN_NAME = "";
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -33,13 +34,48 @@ app.get('/', routes.splash);
 app.get('/mentionmanagement', routes.mentionmanagement);
 app.get('/dashboard', routes.dashboard);
 app.get('/realtime', routes.realtime);
+app.get('/verify', routes.verify);
+app.get('/downloadtemplates', routes.downloadtemplates);
+app.get('/updatetemplate', routes.updatetemplate);
+app.get('/logout' , routes.logout);
+app.post('/posttweet', function(req, res)
+{
+
+    var name = req.body.name;
+    var message = req.body.message;
+    var replytoid = req.body.replytoid;
+
+    console.log("name is "+req.body.name);
+    console.log("message is "+req.body.message);
+    console.log("reply to id "+req.body.replytoid);
+
+    //extract data like whom to post the tweet from req header
+   
+
+     var twit = new twitter({
+                        consumer_key: "sEORAkR5366d5o9wTfMtmQ",
+                        consumer_secret: "xwlDEXXpim7yEK69KtRo0C4zh5TR3sQCjBOaCEfwpcQ",
+                        access_token_key: req.session.oauth.access_token,
+                        access_token_secret: req.session.oauth.access_token_secret
+                    });
+
+    // res.send("success");
+
+     twit
+
+            .updateStatus("@"+name+" "+message, { in_reply_to_status_id: replytoid }, function (err, data)
+             {
+                 if (err) res.send(err, 500)
+                 else res.send(data)
+             });
+
+});
 //app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-//var OAuth = require('OAuth');
 var util = require('util');
 var OAuth= require('oauth').OAuth;
 
