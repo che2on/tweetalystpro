@@ -1,2 +1,10 @@
 .idea/
 node_modules/
+protes.ns
+protes.1
+protes.0
+mongod.lock
+local.ns
+journal/lsn
+journal/j._0
+local.0
