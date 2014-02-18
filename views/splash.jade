@@ -1,5 +1,5 @@
 doctype html
-html(ng-app)
+html
     head
         title= title
         link(rel='stylesheet', href='/lib/stylesheets/bootstrap.css')
@@ -9,8 +9,10 @@ html(ng-app)
     body
         block content
 
-        .content(ng-controller='TestApp' style="text-align:center")
-            img(src='/images/tweetalystprosmall.png')
+        .content(style="text-align:center")
+            img(src='/images/tweetalystprosmall1.png')
+            br
+            p Lexo Systems Private Limited
 
             #buttonname
             a(type="submit" class="btn btn-success btn-lg" href="/auth/twitter" ) Login

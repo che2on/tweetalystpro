@@ -8,3 +8,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+#column1 {
+            height: 500px;
+            overflow: auto;
+        }
+#column2 {
+            height: 500px;
+            overflow: auto;
+        }
+#column3 {
+            height: 500px;
+            overflow: auto;
+        }
+
+.launch-modal {
+    margin: 20px;
+}

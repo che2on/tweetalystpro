@@ -7,3 +7,8 @@ function windowpop(url, width, height) {
     //Open the window.
     window.open(url, "Window2", "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
 }
+
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#textareaID').focus();
+})
